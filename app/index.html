@@ -19,6 +19,8 @@
 
   <!-- Theme CSS -->
   <link href="css/clean-blog.min.css" rel="stylesheet">
+  <link href="css/clean-blog.css" rel="stylesheet">
+
 
   <!-- Custom Fonts -->
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -79,20 +81,23 @@
     </header>
     <!-- ************************************************************************ -->
     <!-- Main Content -->
-    <div class="container">
+    <div class="container" ng-app="myApp">
         <div class="row">
-
             <div class="post-preview">
                 <div class="col-xs-4">
-                    <h1> A </h1>
-                    <image />
-                    <p> Jake Laney</p>
+                    <center>
+                        <img ng-click="selectRover('opportunity')" class="profile" width="100px" src="img/opportunity.jpg"></img>
+                    </center>
                 </div>
                 <div class="col-xs-4">
-                    <h1> B </h1>
+                    <center>
+                        <img ng-click="selectRover('curiosity')" class="profile" src="img/opportunity.jpg"></img>
+                    </center>
                 </div>
                 <div class="col-xs-4">
-                    <h1> C </h1>
+                    <center>
+                        <img ng-click="selectRover('spirit')" class="profile" src="img/opportunity.jpg"></img>
+                    </center>
                 </div>
             </div>
         </div>

@@ -3,6 +3,23 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+
+.profile {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin: 0;
+}
+
+.profile:hover {
+    width: 180px;
+    height: 180px;
+}
+
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
@@ -32,9 +49,7 @@ a:focus {
   color: #0085A1;
 }
 a img:hover,
-a img:focus {
-  cursor: zoom-in;
-}
+a img:focus {}
 blockquote {
   color: #777777;
   font-style: italic;
@@ -253,6 +268,7 @@ hr.small {
     font-size: 36px;
   }
 }
+
 .section-heading {
   font-size: 36px;
   margin-top: 60px;
@@ -375,7 +391,6 @@ form .row:first-child .floating-label-form-group {
 .pager .disabled > span {
   color: #777777;
   background-color: #333333;
-  cursor: not-allowed;
 }
 ::-moz-selection {
   color: white;
@@ -398,10 +413,4 @@ img::-moz-selection {
 
 body {
   -webkit-tap-highlight-color: #0085A1;
-}
-
-image {
-    height: 150px;
-    width: 150px;
-    background-color: red;
 }
