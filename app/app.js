@@ -18,6 +18,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
         $scope.manifestURL = "https://api.nasa.gov/mars-photos/api/v1/manifests/";
         $scope.manifest = {};
         $scope.apiKey = "QVVpRu8GN1TT6dqz89kn3DQMBXcDL25RtEO2LKr9";
+        $scope.photoList = {};
 
         $scope.selectRover = function(roverName) {
             if (roverName === 'curiosity' || roverName === 'spirit' || roverName === 'opportunity') {
@@ -28,8 +29,31 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
                 });
             }
             else {
-                
+
             }
 
+        };
+
+        var getPhotos = function() {
+            $http.get($scope.queryURL + "&api_key=" + $scope.apiKey).then(function(response) {
+                $scope.photoList = response.data;
+            });
+        };
+
+        $scope.selectDate = function(date, isSol) {
+            if (isSol) {
+                $scope.queryURL = $scope.queryURL + "?sol=" + date;
+            }
+            else {
+                $scope.queryURL = $scope.queryURL + "?earth_date=" + date;
+            }
+
+            getPhotos();
+        };
+
+        $scope.selectCamera = function(camera) {
+            $scope.queryURL = $scope.queryURL + "&camera=" + camera;
+            getPhotos();
         }
+
     }]);
