@@ -11,7 +11,11 @@
     "angular-loader": "~1.5.0",
     "angular-mocks": "~1.5.0",
     "html5-boilerplate": "^5.3.0",
-    "angular-bootstrap-lightbox": "^0.12.0"
+    "angular-bootstrap-lightbox": "^0.12.0",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angular-animate": "^1.6.1",
+    "angular-touch": "^1.6.1",
+    "moment": "^2.17.1"
   },
   "authors": [
     "Joseph Cauble <jdc0066@auburn.edu> and Jake Laney <jpl0015@auburn.edu>"

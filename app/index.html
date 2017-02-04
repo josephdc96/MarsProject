@@ -21,6 +21,9 @@
   <link href="css/clean-blog.min.css" rel="stylesheet">
   <link href="css/clean-blog.css" rel="stylesheet">
 
+    <!-- Photo Viewer CSS -->
+    <link rel="stylesheet" href="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css">
+
 
   <!-- Custom Fonts -->
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -29,6 +32,13 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+
+    <!-- Ligthbox Bootstrap -->
+
+    <script src="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-bootstrap/index.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
 </head>
 <body ng-app="myApp">
 
@@ -122,10 +132,20 @@
                         <p>
                             Most Recent: {{manifest.photo_manifest.max_date}}
                         </p>
-                        <p>
-                            Standard Date: <input type="text" ng-model="earthDate" />
-                        </p>
-                        <button ng-click="getEarthDatePhoto(earthDate)">GO</button>
+                        <div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <center><p class="input-group">
+                                        <input type="text" class="form-control" uib-datepicker-popup ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+                                    </p></center>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn" ng-click="selectDate(false)">GO</button>
                     </center>
                     </div>
                 </div>
@@ -232,9 +252,7 @@
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
 
-    <!-- Ligthbox Bootstrap -->
-    <link rel="stylesheet" href="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css">
-    <script src="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js"></script>
+
 
 </body>
 </html>
