@@ -12,12 +12,13 @@ angular.module('myApp', [
 ])
 
     .controller('myApp', ['$scope', '$http', function($scope, $http, Lightbox) {
-        $scope.queryURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
+        $scope.queryURL = "https://crossorigin.me/https://api.nasa.gov/mars-photos/api/v1/rovers/";
         $scope.rover = "";
         $scope.date = "";
         $scope.camera = "";
-        $scope.manifestURL = "https://api.nasa.gov/mars-photos/api/v1/manifests/";
+        $scope.manifestURL = "https://crossorigin.me/https://api.nasa.gov/mars-photos/api/v1/manifests/";
         $scope.manifest = {photo_manifest: {max_date: "2000-01-01", landing_date: "1990-01-01"}};
+        //$scope.apiKey = "DEMO_KEY"
         $scope.apiKey = "QVVpRu8GN1TT6dqz89kn3DQMBXcDL25RtEO2LKr9";
         $scope.photoList = {};
         $scope.photos = [];
@@ -139,15 +140,31 @@ angular.module('myApp', [
         var getPhotos = function() {
             $http.get($scope.queryURL + $scope.rover + "/photos?" +
                 $scope.date + $scope.camera + "&api_key=" + $scope.apiKey)
-                .then(function(response) {
-                $scope.photoList = response.data;
-            });
-
-            for (var i = 0; i < $scope.photoList.photos.length; i++) {
-                $scope.photos.push({
-                    'url': $scope.photoList.photos[i]["img_src"]
+                .success(function(data) {
+                    $scope.photoList = eval(data);
+                    console.log(data);
+                    console.log($scope.photoList)
+                    for (var i = 0; i < $scope.photoList.photos.length; i++) {
+                        $scope.photos.push({
+                            'url': $scope.photoList.photos[i]["img_src"]
+                        })
+                    }
                 })
-            }
+            /*$.ajax({
+                type: "GET",
+                url: $scope.queryURL + $scope.rover + "/photos?" + $scope.date + $scope.camera + "&api_key=" + $scope.apiKey,
+                dataType: "json",
+                success: function(data) {
+                    $scope.photoList = eval(data);
+                    console.log(data);
+                    console.log($scope.photoList)
+                    for (var i = 0; i < $scope.photoList.photos.length; i++) {
+                        $scope.photos.push({
+                            'url': $scope.photoList.photos[i]["img_src"]
+                        })
+                    }
+                }
+            })*/
         };
 
         $scope.selectDate = function(isSol) {
@@ -155,7 +172,7 @@ angular.module('myApp', [
                 $scope.date = "sol=" + date;
             }
             else {
-                $scope.date = "earth_date=" + moment($scope.dt).format("YYYY-DD-MM");
+                $scope.date = "earth_date=" + moment($scope.dt).format("YYYY-D-M");
             }
 
             getPhotos();
