@@ -118,6 +118,7 @@ angular.module('myApp', [
             return '';
         }
         $scope.selectRover = function(roverName) {
+            $scope.photoList = {}
             $scope.isDateSelectHidden = false;
             if (roverName === 'curiosity' || roverName === 'spirit' || roverName === 'opportunity') {
 
