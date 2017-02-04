@@ -16,6 +16,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
 
     .controller('myApp', ['$scope', '$http', function($scope, $http) {
         $scope.queryURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
+        $scope.rover = "";
         $scope.manifestURL = "https://api.nasa.gov/mars-photos/api/v1/manifests/";
         $scope.manifest = {};
         $scope.apiKey = "QVVpRu8GN1TT6dqz89kn3DQMBXcDL25RtEO2LKr9";
@@ -24,11 +25,15 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
         $scope.selectRover = function(roverName) {
             if (roverName === 'curiosity' || roverName === 'spirit' || roverName === 'opportunity') {
                 $scope.queryURL = $scope.queryURL + "curiosity/photos";
-                $scope.manifestURL = $scope.manifestURL + "curiosity";
-                $http.get($scope.manifestURL).then(function(response) {
-                    $scope.manifest = response.data;
-                });
+                $scope.rover = roverName;
+                $http.get($scope.manifestURL + roverName + "/photos?api_key=" + $scope.apiKey)
+                    .success(function(data) {
+                        $scope.manifest = eval(data);
+                        console.log(data);
+                        console.log($scope.manifest);
+                    })
                 console.log("You have selected " + roverName);
+
             }
             else {
 
