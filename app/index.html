@@ -27,8 +27,8 @@
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
 </head>
 <body ng-app="myApp">
 
@@ -81,10 +81,10 @@
 
     <!-- ************************************************************************ -->
     <!-- Main Content -->
-    <div class="container" ng-controller="myApp">
+    <div class="" ng-controller="myApp">
 
         <!-- Select Rover -->
-        <div class="row" style="padding:20px">
+        <div class="row" style="padding:20px;background-color: #B7410E">
             <div class="post-preview">
                 <div class="col-xs-4">
                     <center>
@@ -104,7 +104,7 @@
             </div>
         </div>
 
-        <!-- Select Data -->
+        <!-- Select Date -->
         <div class="row dateselect" ng-hide="isDateSelectHidden">
             <div class="row">
                 <center>
@@ -114,22 +114,34 @@
             <div class="row">
                 <div class="col-xs-6">
                     <div class="center">
+                    <center>
                         <h3>Earth Day</h3>
                         <p>
-                            Mission Start: {{manifest.landing_date}}
+                            Mission Start: {{manifest.photo_manifest.landing_date}}
                         </p>
                         <p>
-                            Most Recent: {{manifest.max_date}}
+                            Most Recent: {{manifest.photo_manifest.max_date}}
                         </p>
-                        <h4>Standard date-picker</h4>
+                        <p>
+                            Standard Date: <input type="text" ng-model="earthDate" />
+                        </p>
+                        <button ng-click="getEarthDatePhoto(earthDate)">GO</button>
+                    </center>
                     </div>
                 </div>
                 <div class="col-xs-6">
                     <div class="center">
+                        <center>
+
                         <h3>Mars Sol</h3>
                         <p>
-                            Max Sols: {{manifest.max_sol}}
+                            Max Sols: {{manifest.photo_manifest.max_sol}}
                         </p>
+                        <p>
+                            Enter Sol: <input type="text" ng-model="solDate" />
+                        </p>
+                        <button ng-click="getSolDatePhoto(solDate)">GO</button>
+                    </center>
                     </div>
                 </div>
             </div>

@@ -4,22 +4,17 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
- .datepickerdemoBasicUsage {
-   /** Demo styles for mdCalendar. */ }
-   .datepickerdemoBasicUsage md-content {
-     padding-bottom: 200px; }
-   .datepickerdemoBasicUsage .validation-messages {
-     font-size: 12px;
-     color: #dd2c00;
-     margin-left: 15px; }
+button {
+    color: black;
+    background-color: lime;
+}
 
-.dateselect {
-    background-color: cornsilk;
+input {
+    color: black;
 }
 
 .center {
     margin: auto;
-    border: 3px solid green;
     padding: 10px;
 }
 
@@ -40,9 +35,10 @@
 }
 
 body {
+    background-color: #00001a;
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
-  color: #333333;
+  color: white;
 }
 p {
   line-height: 1.5;
