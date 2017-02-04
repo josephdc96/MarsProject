@@ -5,7 +5,9 @@ angular.module('myApp', [
     'ngRoute',
     'myApp.view1',
     'myApp.view2',
-    'myApp.version'
+    'myApp.version',
+    'ngMaterial',
+    'ngMessages',
 ]).
 
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
@@ -56,5 +58,20 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
             $scope.queryURL = $scope.queryURL + "&camera=" + camera;
             getPhotos();
         }
+
+        // date picker
+        $scope.myDate = new Date();
+        $scope.minDate = new Date(
+            $scope.myDate.getFullYear(),
+            $scope.myDate.getMonth() - 2,
+            $scope.myDate.getDate());
+        $scope.maxDate = new Date(
+            $scope.myDate.getFullYear(),
+            $scope.myDate.getMonth() + 2,
+            $scope.myDate.getDate());
+        $scope.onlyWeekendsPredicate = function(date) {
+          var day = date.getDay();
+          return day === 0 || day === 6;
+        };
 
     }]);

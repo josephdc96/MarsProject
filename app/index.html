@@ -54,9 +54,6 @@
                         <a href="about.html">About</a>
                     </li>
                     <li>
-                        <a href="post.html">Sample Post</a>
-                    </li>
-                    <li>
                         <a href="contact.html">Contact</a>
                     </li>
                 </ul>
@@ -81,12 +78,13 @@
             </div>
         </div>
     </header>
+
     <!-- ************************************************************************ -->
     <!-- Main Content -->
     <div class="container" ng-app="myApp">
 
         <!-- Select Rover -->
-        <div class="row">
+        <div class="row" style="padding:20px">
             <div class="post-preview">
                 <div class="col-xs-4">
                     <center>
@@ -107,7 +105,36 @@
         </div>
 
         <!-- Select Data -->
-
+        <div class="row dateselect">
+            <div class="row">
+                <center>
+                    <h1>Rover: {{roverName}}</h1>
+                </center>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="center">
+                        <h3>Earth Day</h3>
+                        <p>
+                            Mission Start: {{manifest.landing_date}}
+                        </p>
+                        <p>
+                            Most Recent: {{manifest.max_date}}
+                        </p>
+                        <h4>Standard date-picker</h4>
+                        <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="center">
+                        <h3>Mars Sol</h3>
+                        <p>
+                            Max Sols: {{manifest.max_sol}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     </div>
