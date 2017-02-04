@@ -6,8 +6,6 @@ angular.module('myApp', [
     'myApp.view1',
     'myApp.view2',
     'myApp.version',
-    'ngMaterial',
-    'ngMessages',
 ]).
 
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
@@ -23,8 +21,9 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
         $scope.manifest = {};
         $scope.apiKey = "QVVpRu8GN1TT6dqz89kn3DQMBXcDL25RtEO2LKr9";
         $scope.photoList = {};
-
+        $scope.isDateSelectHidden = true;
         $scope.selectRover = function(roverName) {
+            $scope.isDateSelectHidden = false;
             if (roverName === 'curiosity' || roverName === 'spirit' || roverName === 'opportunity') {
                 $scope.queryURL = $scope.queryURL + "curiosity/photos";
                 $scope.rover = roverName;
@@ -35,7 +34,6 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
                         console.log($scope.manifest);
                     })
                 console.log("You have selected " + roverName);
-
             }
             else {
 

@@ -27,7 +27,7 @@
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 
 </head>
 <body ng-app="myApp">
@@ -105,10 +105,10 @@
         </div>
 
         <!-- Select Data -->
-        <div class="row dateselect">
+        <div class="row dateselect" ng-hide="isDateSelectHidden">
             <div class="row">
                 <center>
-                    <h1>Rover: {{roverName}}</h1>
+                    <h1>Rover: {{manifest.photo_manifest.name}}</h1>
                 </center>
             </div>
             <div class="row">
@@ -122,7 +122,6 @@
                             Most Recent: {{manifest.max_date}}
                         </p>
                         <h4>Standard date-picker</h4>
-                        <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
                     </div>
                 </div>
                 <div class="col-xs-6">
@@ -135,8 +134,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
     <!-- ************************************************************************ -->
 
