@@ -17,6 +17,8 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     .controller('myApp', ['$scope', '$http', function($scope, $http) {
         $scope.queryURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
         $scope.rover = "";
+        $scope.date = "";
+        $scope.camera = "";
         $scope.manifestURL = "https://api.nasa.gov/mars-photos/api/v1/manifests/";
         $scope.manifest = {};
         $scope.apiKey = "QVVpRu8GN1TT6dqz89kn3DQMBXcDL25RtEO2LKr9";
@@ -42,24 +44,26 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
         };
 
         var getPhotos = function() {
-            $http.get($scope.queryURL + "&api_key=" + $scope.apiKey).then(function(response) {
+            $http.get($scope.queryURL + $scope.rover + "/photos?" +
+                $scope.date + $scope.camera + "&api_key=" + $scope.apiKey)
+                .then(function(response) {
                 $scope.photoList = response.data;
             });
         };
 
         $scope.selectDate = function(date, isSol) {
             if (isSol) {
-                $scope.queryURL = $scope.queryURL + "?sol=" + date;
+                $scope.date = "sol=" + date;
             }
             else {
-                $scope.queryURL = $scope.queryURL + "?earth_date=" + date;
+                $scope.date = "earth_date=" + date;
             }
 
             getPhotos();
         };
 
         $scope.selectCamera = function(camera) {
-            $scope.queryURL = $scope.queryURL + "&camera=" + camera;
+            $scope.camera = "camera=" + camera;
             getPhotos();
         }
 
