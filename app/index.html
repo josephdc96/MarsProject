@@ -134,6 +134,15 @@
                 </div>
             </div>
         </div>
+        <div class="row pictureview" ng-hide="isPictureViewHidden">
+            <ul class="gallery gallery1">
+                <li ng-repeat="image in photos">
+                    <a ng-click="openLightboxModal($index)">
+                        <img ng-src="{{image.url}}" class="img-thumbnail">
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
     <!-- ************************************************************************ -->
 
@@ -210,5 +219,10 @@
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
+
+    <!-- Ligthbox Bootstrap -->
+    <link rel="stylesheet" href="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css">
+    <script src="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js"></script>
+
 </body>
 </html>
