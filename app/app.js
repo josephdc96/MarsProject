@@ -14,7 +14,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     $routeProvider.otherwise({redirectTo: '/view1'});
 }])
 
-    .controller('myApp', [function($scope, $http) {
+    .controller('myApp', ['$scope', '$http', function($scope, $http) {
         $scope.queryURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
         $scope.manifestURL = "https://api.nasa.gov/mars-photos/api/v1/manifests/";
         $scope.manifest = {};
@@ -28,6 +28,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
                 $http.get($scope.manifestURL).then(function(response) {
                     $scope.manifest = response.data;
                 });
+                console.log("You have selected " + roverName);
             }
             else {
 
