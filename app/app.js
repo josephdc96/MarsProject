@@ -22,7 +22,7 @@ angular.module('myApp', [
         $scope.apiKey = "QVVpRu8GN1TT6dqz89kn3DQMBXcDL25RtEO2LKr9";
         $scope.photoList = {};
         $scope.photos = [];
-        $scope.isDateSelectHidden = true;
+        $scope.isDateSelectHidden = false;
         $scope.isPictureViewHidden = true;
         $scope.today = function() {
             $scope.dt = new Date();
@@ -118,7 +118,7 @@ angular.module('myApp', [
             return '';
         }
         $scope.selectRover = function(roverName) {
-            $scope.isDateSelectHidden = false;
+            $scope.isDateSelectHidden = true;
             if (roverName === 'curiosity' || roverName === 'spirit' || roverName === 'opportunity') {
 
                 $scope.rover = roverName;

@@ -4,6 +4,20 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+ .ng-hide {
+   opacity: 0;
+ }
+
+.ng-hide-add,
+.ng-hide-remove {
+   transition: all linear 0.5s;
+ }
+
+.break {
+    background-color: #81200C;
+    padding: 10px;
+}
+
 button {
     color: black;
     background-color: lime;
@@ -23,6 +37,9 @@ input {
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    border-style: solid;
+    border-color: #81200C;
+    border-width: 5px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -30,9 +47,23 @@ input {
 }
 
 .profile:hover {
-    width: 180px;
-    height: 180px;
+    opacity: 0.5;
 }
+@media only screen and (min-width: 800px) {
+    .profile {
+        width: 220px;
+        height: 220px;
+    }
+
+}
+@media only screen and (min-width: 1000px) {
+    .profile {
+        width: 300px;
+        height: 300px
+    }
+}
+
+
 
 body {
     background-color: #00001a;
@@ -168,7 +199,7 @@ hr.small {
   }
 }
 .intro-header {
-  background-color: #777777;
+  background-color: black;
   background: no-repeat center center;
   background-attachment: scroll;
   -webkit-background-size: cover;

@@ -82,7 +82,7 @@
                     <div class="site-heading">
                         <h1>Project Mars</h1>
                         <hr class="small">
-                        <span class="subheading">A Collection of Mars Rover Photographs</span>
+                        <span class="subheading">A Collection of Photographs Taken by Nasa's Mars Rovers</span>
                     </div>
                 </div>
             </div>
@@ -92,28 +92,37 @@
     <!-- ************************************************************************ -->
     <!-- Main Content -->
     <div class="" ng-controller="myApp">
-
+        <div class="row">
+            <center>
+                <h1>Select A Rover</h1>
+            </center>
+        </div>
         <!-- Select Rover -->
-        <div class="row" style="padding:20px;background-color: #B7410E">
+        <div class="row" style="padding:20px;">
             <div class="post-preview">
                 <div class="col-xs-4">
                     <center>
                         <img ng-click="selectRover('opportunity')" class="profile" width="100px" src="img/opportunity.jpg"></img>
+                        <h3>Opportunity</h3>
                     </center>
                 </div>
                 <div class="col-xs-4">
                     <center>
-                        <img ng-click="selectRover('curiosity')" class="profile" src="img/opportunity.jpg"></img>
+                        <img ng-click="selectRover('curiosity')" class="profile" src="img/curiosity.jpg"></img>
+                        <h3>Curiosity</h3>
                     </center>
                 </div>
                 <div class="col-xs-4">
                     <center>
-                        <img ng-click="selectRover('spirit')" class="profile" src="img/opportunity.jpg"></img>
+                        <img ng-click="selectRover('spirit')" class="profile" src="img/spirit.jpg"></img>
+                        <h3>Spirit</h3>
                     </center>
                 </div>
             </div>
         </div>
+        <div class="break">
 
+        </div>
         <!-- Select Date -->
         <div class="row dateselect" ng-hide="isDateSelectHidden">
             <div class="row">
@@ -132,17 +141,14 @@
                         <p>
                             Most Recent: {{manifest.photo_manifest.max_date}}
                         </p>
-                        <div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <center><p class="input-group">
-                                        <input type="text" class="form-control" uib-datepicker-popup ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                                        <span class="input-group-btn">
-            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
-          </span>
-                                    </p></center>
-                                </div>
+                        <div class="row">
+                            <div class="col-xs-8 col-xs-offset-2">
+                                <p class="input-group">
+                                    <input type="text" class="form-control" uib-datepicker-popup ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                    <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
                             </div>
                         </div>
                         <button class="btn" ng-click="selectDate(false)">GO</button>
