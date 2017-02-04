@@ -28,7 +28,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
             if (roverName === 'curiosity' || roverName === 'spirit' || roverName === 'opportunity') {
                 $scope.queryURL = $scope.queryURL + "curiosity/photos";
                 $scope.rover = roverName;
-                $http.get($scope.manifestURL + roverName + "/photos?api_key=" + $scope.apiKey)
+                $http.get($scope.manifestURL + roverName + "?api_key=" + $scope.apiKey)
                     .success(function(data) {
                         $scope.manifest = eval(data);
                         console.log(data);
