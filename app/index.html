@@ -27,8 +27,10 @@
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
 </head>
-<body ng-app="myApp">
+<body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -81,7 +83,7 @@
     </header>
     <!-- ************************************************************************ -->
     <!-- Main Content -->
-    <div class="container" ng-controller="myApp">
+    <div class="container" ng-app="myApp">
 
         <!-- Select Rover -->
         <div class="row">
@@ -106,7 +108,7 @@
 
         <!-- Select Data -->
 
-        
+
 
     </div>
     <!-- ************************************************************************ -->
@@ -176,9 +178,6 @@
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
-
-
-  <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>-->
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
