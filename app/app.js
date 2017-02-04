@@ -23,7 +23,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
         $scope.manifest = {};
         $scope.apiKey = "QVVpRu8GN1TT6dqz89kn3DQMBXcDL25RtEO2LKr9";
         $scope.photoList = {};
-        $scope.isDateSelectHidden = true;
+        $scope.isDateSelectHidden = false;
         $scope.selectRover = function(roverName) {
             $scope.isDateSelectHidden = false;
             if (roverName === 'curiosity' || roverName === 'spirit' || roverName === 'opportunity') {
