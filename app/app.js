@@ -12,17 +12,17 @@ angular.module('myApp', [
 ])
 
     .controller('myApp', ['$scope', '$http', function($scope, $http, Lightbox) {
-        $scope.queryURL = "https://crossorigin.me/https://api.nasa.gov/mars-photos/api/v1/rovers/";
+        $scope.queryURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
         $scope.rover = "";
         $scope.date = "";
         $scope.camera = "";
-        $scope.manifestURL = "https://crossorigin.me/https://api.nasa.gov/mars-photos/api/v1/manifests/";
+        $scope.manifestURL = "https://api.nasa.gov/mars-photos/api/v1/manifests/";
         $scope.manifest = {photo_manifest: {max_date: "2000-01-01", landing_date: "1990-01-01"}};
         //$scope.apiKey = "DEMO_KEY"
         $scope.apiKey = "QVVpRu8GN1TT6dqz89kn3DQMBXcDL25RtEO2LKr9";
         $scope.photoList = {};
         $scope.photos = [];
-        $scope.isDateSelectHidden = false;
+        $scope.isDateSelectHidden = true;
         $scope.isPictureViewHidden = true;
         $scope.today = function() {
             $scope.dt = new Date();
@@ -118,7 +118,7 @@ angular.module('myApp', [
             return '';
         }
         $scope.selectRover = function(roverName) {
-            $scope.isDateSelectHidden = true;
+            $scope.isDateSelectHidden = false;
             if (roverName === 'curiosity' || roverName === 'spirit' || roverName === 'opportunity') {
 
                 $scope.rover = roverName;
