@@ -15,12 +15,14 @@
 
 .break {
     background-color: #81200C;
+  margin-bottom: 10px;
+  margin-top: 10px;
     padding: 10px;
 }
 
 button {
-    color: black;
-    background-color: lime;
+    color: white;
+    background-color: #81200C;
 }
 
 input {

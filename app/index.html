@@ -139,16 +139,10 @@
                             Most Recent: {{manifest.photo_manifest.max_date}}
                         </p>
                         <div class="row">
-                            <div class="col-xs-8 col-xs-offset-2">
-                                <p class="input-group">
-                                    <input type="text" class="form-control" uib-datepicker-popup ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                                    <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
-                                    </span>
-                                </p>
-                            </div>
+
+
                         </div>
-                        <button class="btn" ng-click="selectDate(false)">GO</button>
+
                     </center>
                     </div>
                 </div>
@@ -160,22 +154,48 @@
                         <p>
                             Max Sols: {{manifest.photo_manifest.max_sol}}
                         </p>
-                        <p>
-                            Enter Sol: <input type="text" ng-model="solDate" />
-                        </p>
-                        <button ng-click="getSolDatePhoto(solDate)">GO</button>
+
                     </center>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="row" ng--hide="isDateSelectHidden">
+            <div class="col-xs-6">
+                <div class="center">
+                    <center>
+                    <div class="col-xs-8 col-xs-offset-2">
+                        <p class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+
+                        </p>
+                        <button class="btn" ng-click="selectDate(false)">GO</button>
+                    </div>
+                    </center>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="center">
+                    <center>
+                    <p>
+                        Choose Sol: <input type="text" ng-model="solDate" />
+                    </p>
+                    <button class="btn" ng-click="selectDate(true)">GO</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="break" ng-hide="isPictureViewHidden"></div>
         <div class="row pictureview" ng-hide="isPictureViewHidden">
             <ul class="gallery gallery1">
-                <li ng-repeat="image in photos">
+                <div class="col-xs-2" ng-repeat="image in photos">
                     <a ng-click="openLightboxModal($index)">
-                        <img ng-src="{{image.url}}" class="img-thumbnail">
+                        <img width="150" ng-src="{{image.url}}" class="img-thumbnail">
                     </a>
-                </li>
+                </div>
             </ul>
         </div>
     </div>

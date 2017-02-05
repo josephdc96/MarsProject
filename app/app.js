@@ -24,6 +24,7 @@ angular.module('myApp', [
         $scope.photos = [];
         $scope.isDateSelectHidden = true;
         $scope.isPictureViewHidden = true;
+        $scope.solDate = "0";
         $scope.today = function() {
             $scope.dt = new Date();
         };
@@ -139,6 +140,7 @@ angular.module('myApp', [
         };
 
         var getPhotos = function() {
+            $scope.photos = [];
             $http.get($scope.queryURL + $scope.rover + "/photos?" +
                 $scope.date + $scope.camera + "&api_key=" + $scope.apiKey)
                 .success(function(data) {
@@ -170,7 +172,7 @@ angular.module('myApp', [
 
         $scope.selectDate = function(isSol) {
             if (isSol) {
-                $scope.date = "sol=" + date;
+                $scope.date = "sol=" + $scope.solDate;
             }
             else {
                 $scope.date = "earth_date=" + moment($scope.dt).format("YYYY-D-M");
