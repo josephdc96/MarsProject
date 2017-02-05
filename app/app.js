@@ -145,6 +145,8 @@ angular.module('myApp', [
             $http.get($scope.queryURL + $scope.rover + "/photos?" +
                 $scope.date + $scope.camera + "&api_key=" + $scope.apiKey)
                 .success(function(data) {
+                    console.log($scope.queryURL + $scope.rover + "/photos?" +
+                        $scope.date + $scope.camera + "&api_key=" + $scope.apiKey);
                     $scope.photoList = eval(data);
                     console.log(data);
                     console.log($scope.photoList)
@@ -179,6 +181,15 @@ angular.module('myApp', [
                 $scope.date = "earth_date=" + moment($scope.dt).format("YYYY-D-M");
             }
 
+            console.log($scope.camera);
+
+            if ($scope.camera != null) {
+                $scope.camera = "&camera=" + $scope.camera;
+            }
+            else {
+                $scope.camera = "";
+            }
+
             getPhotos();
             console.log($scope.photoList);
             if (angular.equals({}, $scope.photoList) || $scope.photoList.photos.length === 0) {
@@ -192,8 +203,7 @@ angular.module('myApp', [
         };
 
         $scope.selectCamera = function(camera) {
-            $scope.camera = "camera=" + camera;
-            getPhotos();
+            $scope.camera = "&camera=" + camera;
         }
 
         $scope.openLightboxModal = function(index) {
