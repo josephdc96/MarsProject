@@ -18,6 +18,8 @@ angular.module('myApp', [
         $scope.camera = "";
         $scope.manifestURL = "https://api.nasa.gov/mars-photos/api/v1/manifests/";
         $scope.manifest = {photo_manifest: {max_date: "2000-01-01", landing_date: "1990-01-01"}};
+        $scope.cameraList = {FHAZ: false, RHAZ: false, MAST: true, CHEMCAM: true, MAHLI: true, MARDI: true,
+                            NAVCAM: false, PANCAM: true, MINITES: true};
         //$scope.apiKey = "DEMO_KEY"
         $scope.apiKey = "QVVpRu8GN1TT6dqz89kn3DQMBXcDL25RtEO2LKr9";
         $scope.photoList = {};
@@ -135,8 +137,21 @@ angular.module('myApp', [
                     })
                 console.log("You have selected " + roverName);
             }
+            if (roverName === 'curiosity') {
+                $scope.cameraList.MAST = false;
+                $scope.cameraList.CHEMCAM = false;
+                $scope.cameraList.MAHLI = false;
+                $scope.cameraList.MARDI = false;
+                $scope.cameraList.PANCAM = true;
+                $scope.cameraList.MINITES = true;
+            }
             else {
-
+                $scope.cameraList.MAST = true;
+                $scope.cameraList.CHEMCAM = true;
+                $scope.cameraList.MAHLI = true;
+                $scope.cameraList.MARDI = true;
+                $scope.cameraList.PANCAM = false;
+                $scope.cameraList.MINITES = false;
             }
         };
 

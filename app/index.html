@@ -80,7 +80,7 @@
                     <div class="site-heading">
                         <h1>Project Mars</h1>
                         <hr class="small">
-                        <span class="subheading">A Collection of Photographs Taken by Nasa's Mars Rovers</span>
+                        <span class="subheading">A Collection of Photographs Taken by NASA's Mars Rovers</span>
                     </div>
                 </div>
             </div>
@@ -202,31 +202,31 @@
                     <input type="radio" name="cameras" ng-click="selectCamera(null, false)">All
                 </label>
                 <label class="btn btn-primary">
-                    <input name="cameras" type="radio" ng-click="selectCamera('FHAZ', true)">FHAZ
+                    <input name="cameras" type="radio"  ng-click="selectCamera('FHAZ', true)">FHAZ
                 </label>
                 <label class="btn btn-primary">
                     <input type="radio" name="cameras" ng-click="selectCamera('RHAZ', true)">RHAZ
                 </label>
-                <label class="btn btn-primary">
-                    <input name="cameras" type="radio" ng-click="selectCamera('MAST', true)">MAST
+                <label class="btn btn-primary" ng-hide="cameraList.MAST">
+                    <input name="cameras" type="radio"  ng-click="selectCamera('MAST', true)">MAST
                 </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="cameras" ng-click="selectCamera('CHEMCAM', true)">CHEMCAM
+                <label class="btn btn-primary" ng-hide="cameraList.CHEMCAM">
+                    <input type="radio" name="cameras"  ng-click="selectCamera('CHEMCAM', true)">CHEMCAM
                 </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="cameras" ng-click="selectCamera('MAHLI', true)">MAHLI
+                <label class="btn btn-primary" ng-hide="cameraList.MAHLI">
+                    <input type="radio" name="cameras"  ng-click="selectCamera('MAHLI', true)">MAHLI
                 </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="cameras" ng-click="selectCamera('MARDI', true)">MARDI
+                <label class="btn btn-primary" ng-hide="cameraList.MARDI">
+                    <input type="radio" name="cameras"  ng-click="selectCamera('MARDI', true)">MARDI
                 </label>
                 <label class="btn btn-primary">
                     <input type="radio" name="cameras" ng-click="selectCamera('NAVCAM', true)">NAVCAM
                 </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="cameras" ng-click="selectCamera('PANCAM', true)">PANCAM
+                <label class="btn btn-primary" ng-hide="cameraList.PANCAM">
+                    <input type="radio" name="cameras"  ng-click="selectCamera('PANCAM', true)">PANCAM
                 </label>
-                <label class="btn btn-primary">
-                    <input type="radio" name="cameras" ng-click="selectCamera('MINITES', true)">MINITES
+                <label class="btn btn-primary" ng-hide="cameraList.MINITES">
+                    <input type="radio" name="cameras"  ng-click="selectCamera('MINITES', true)">MINITES
                 </label>
             </div>
             </center>
@@ -300,7 +300,7 @@
                             </a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; War Eagle Code 2016</p>
+                    <p class="copyright text-muted">Copyright &copy; War Eagle Code 2017</p>
                 </div>
             </div>
         </div>
