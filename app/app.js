@@ -181,15 +181,6 @@ angular.module('myApp', [
                 $scope.date = "earth_date=" + moment($scope.dt).format("YYYY-D-M");
             }
 
-            console.log($scope.camera);
-
-            if ($scope.camera != null) {
-                $scope.camera = "&camera=" + $scope.camera;
-            }
-            else {
-                $scope.camera = "";
-            }
-
             getPhotos();
             console.log($scope.photoList);
             if (angular.equals({}, $scope.photoList) || $scope.photoList.photos.length === 0) {
@@ -202,8 +193,13 @@ angular.module('myApp', [
             }
         };
 
-        $scope.selectCamera = function(camera) {
-            $scope.camera = "&camera=" + camera;
+        $scope.selectCamera = function(camera, isCamera) {
+            if (isCamera) {
+                $scope.camera = "&camera=" + camera;
+            }
+            else {
+                $scope.camera = "";
+            }
         }
 
         $scope.openLightboxModal = function(index) {
