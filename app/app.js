@@ -15,7 +15,7 @@ angular.module('myApp', [
         $scope.queryURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/";
         $scope.rover = "";
         $scope.date = "";
-        $scope.camera = "";
+        $scope.camera = "camera=all";
         $scope.manifestURL = "https://api.nasa.gov/mars-photos/api/v1/manifests/";
         $scope.manifest = {photo_manifest: {max_date: "2000-01-01", landing_date: "1990-01-01"}};
         //$scope.apiKey = "DEMO_KEY"
@@ -181,9 +181,7 @@ angular.module('myApp', [
                 $scope.date = "earth_date=" + moment($scope.dt).format("YYYY-D-M");
             }
 
-            console.log($scope.camera);
-
-            if ($scope.camera != null) {
+            if ($scope.camera != "camera=all") {
                 $scope.camera = "&camera=" + $scope.camera;
             }
             else {
