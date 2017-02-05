@@ -39,6 +39,7 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="bower_components/angular-bootstrap/index.js"></script>
     <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.min.js"></script>
 </head>
 <body ng-app="myApp">
 
@@ -246,7 +247,7 @@
         <div class="row pictureview" ng-hide="isPictureViewHidden">
             <ul class="gallery gallery1">
                 <div class="col-xs-2" ng-repeat="image in photos">
-                    <a ng-click="openLightboxModal($index)">
+                    <a target="_blank" ng-href="{{image.url}}">
                         <img width="150" ng-src="{{image.url}}" class="img-thumbnail">
                     </a>
                 </div>
@@ -258,7 +259,7 @@
             <h1>There are either no pictures from this day, or there was an error, so allow us to compensate:</h1>
             <div class="col-xs-2">
 
-                <a ng-click="openLightboxModal($index)">
+                <a target="_blank" href="img/marspic.png">
                     <img width="150" src="img/marspic.png" class="img-thumbnail">
                 </a>
 

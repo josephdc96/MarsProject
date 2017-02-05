@@ -180,7 +180,7 @@ angular.module('myApp', [
             else {
                 $scope.date = "earth_date=" + moment($scope.dt).format("YYYY-D-M");
             }
-            
+
             getPhotos();
             console.log($scope.photoList);
             if (angular.equals({}, $scope.photoList) || $scope.photoList.photos.length === 0) {
@@ -203,7 +203,7 @@ angular.module('myApp', [
         }
 
         $scope.openLightboxModal = function(index) {
-            Lightbox.openModal($scope.images, index);
+            Lightbox.openModal($scope.photos, index);
         }
 
         // date picker
