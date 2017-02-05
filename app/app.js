@@ -24,6 +24,7 @@ angular.module('myApp', [
         $scope.photos = [];
         $scope.isDateSelectHidden = true;
         $scope.isPictureViewHidden = true;
+        $scope.pictureError = true;
         $scope.solDate = "0";
         $scope.today = function() {
             $scope.dt = new Date();
@@ -179,7 +180,15 @@ angular.module('myApp', [
             }
 
             getPhotos();
-            $scope.isPictureViewHidden = false;
+            console.log($scope.photoList);
+            if (angular.equals({}, $scope.photoList) || $scope.photoList.photos.length === 0) {
+                $scope.isPictureViewHidden = true;
+                $scope.pictureError = false;
+            }
+            else {
+                $scope.isPictureViewHidden = false;
+                $scope.pictureError = true;
+            }
         };
 
         $scope.selectCamera = function(camera) {

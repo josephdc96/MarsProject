@@ -198,6 +198,17 @@
                 </div>
             </ul>
         </div>
+        <div class="break" ng-hide="pictureError"></div>
+        <div class="row pictureview" ng-hide="pictureError">
+            <center>
+            <h1>There are either no pictures from this day, or there was an error, so allow us to compensate:</h1>
+            <div class="col-xs-2">
+                <a ng-click="openLightboxModal($index)">
+                    <img width="150" ng-src="a.jpg" class="img-thumbnail">
+                </a>
+            </div>
+            </center>
+        </div>
     </div>
     <!-- ************************************************************************ -->
 
